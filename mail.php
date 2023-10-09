@@ -19,6 +19,7 @@
   }
 ?>
 
+<!-- Отправка формы на почту. Может работать без "Базы данных" -->
 <? 
 require_once 'PHPMailer/PHPMailerAutoload.php';
 
