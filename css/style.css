@@ -1,0 +1,647 @@
+@font-face {
+  font-family: 'PtSans';
+  src: url('../fonts/PT_Sans-Web-Bold.woff2') format('woff2'), url('../fonts/PT_Sans-Web-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'PtSans';
+  src: url('../fonts/PT_Sans-Web-Regular.woff2') format('woff2'), url('../fonts/PT_Sans-Web-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'MyriadPro';
+  src: url('../fonts/MyriadPro-Regular.woff2') format('woff2'), url('../fonts/MyriadPro-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --color-white: #fff;
+  --color-mineShaft: #333;
+  --color-alto: #d0d0d0;
+  --color-000: rgb(0, 0, 0);
+  --color-codGray: #0d0d0d;
+  --color-doveGray: #696969;
+  --color-limeade: #3da001;
+  --color-limeadeA: #368c02;
+  --color-gallery: #eaeaea;
+  --color-rgb208: rgb(208, 208, 208);
+  --color-rgb247: rgb(247, 247, 247);
+  --color-rgb255: rgb(255, 255, 255);
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html,
+body {
+  /*Для .wrapper Это будет нужно для footer*/
+  height: 100%;
+}
+
+body {
+  min-width: 320px;
+  font-family: 'PtSans', sans-serif;
+  /*Общий шрифт 400*/
+  font-weight: 400;
+  font-size: clamp(14px, 3vw, 18px);
+  line-height: 1;
+  color: var(--color-000);
+}
+
+img {
+  vertical-align: top;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+p,
+a {
+  /* перенос слов */
+  word-wrap: break-word;
+}
+
+ul {
+  list-style: none;
+}
+
+
+/*Цвет для всех форм инпутов*/
+
+::placeholder {
+  font-style: oblique;
+  /*курсив*/
+  line-height: 1.2;
+  color: rgb(98, 98, 98);
+}
+
+
+/*-//- Цвет для всех форм инпутов*/
+
+textarea {
+  resize: none;
+}
+
+.btn {
+  /*position: relative; Не ставить! Его(бургера меню) потом кнопка не видит.*/
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  align-items: center;
+  padding: 13px 33px;
+  border-radius: 5px;
+  border: none;
+  /*max-width - для резины*/
+  max-width: max-content;
+  height: max-content;
+  font-weight: 700;
+  font-size: 12.5px;
+  line-height: 1;
+  color: var(--color-white);
+  text-align: center;
+  background-image: -moz-linear-gradient(90deg, rgb(100, 0, 0) 3%, rgb(140, 2, 2) 5%, rgb(227, 0, 0) 100%);
+  background-image: -webkit-linear-gradient(90deg, rgb(100, 0, 0) 3%, rgb(140, 2, 2) 5%, rgb(227, 0, 0) 100%);
+  background-image: -ms-linear-gradient(90deg, rgb(100, 0, 0) 3%, rgb(140, 2, 2) 5%, rgb(227, 0, 0) 100%);
+  box-shadow: 0px 5px 10px 0px rgba(0, 1, 3, 0.17);
+  cursor: pointer;
+  text-transform: uppercase;
+  -webkit-transition: background .4s ease-in-out;
+  -moz-transition: background .4s ease-in-out;
+  -ms-transition: background .4s ease-in-out;
+  -o-transition: background .4s ease-in-out;
+  transition: background .4s ease-in-out;
+}
+
+.btn:focus {
+  background: var(--color-alto);
+  outline: none;
+}
+
+.btn:hover {
+  background: linear-gradient(0deg, var(--color-doveGray) 3%, #7a7676 5%, #a9a5a5 100%);
+}
+
+.btn:active {
+  opacity: .7;
+}
+
+.wrapper {
+  min-height: 100%;
+  overflow: hidden;
+}
+
+.visually-hidden {
+  position: absolute;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  width: 1px;
+  height: 1px;
+  clip: rect(0, 0, 0, 0);
+  overflow: hidden;
+}
+
+.container {
+  /*1050px = 950px + 50px + 50px не менять!*/
+  max-width: 1050px;
+  margin: 0 auto;
+  padding: 0 50px;
+}
+
+.h2 {
+  font-weight: 700;
+  /*clamp() - резина размера шрифта*/
+  font-size: clamp(26px, 5vw, 36px);
+  color: rgb(19, 45, 3);
+  text-transform: uppercase;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.h3 {
+  font-weight: 700;
+  font-size: clamp(16px, 4vw, 44px);
+}
+
+.h4 {
+  font-weight: 700;
+  font-size: clamp(14px, 4vw, 30px);
+}
+
+.h5 {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 22px;
+}
+
+.desc {
+  font-weight: 700;
+  font-size: clamp(17px, 5vw, 29px);
+  color: var(--color-000);
+}
+
+.color-white255 {
+  color: var(--color-rgb255);
+}
+
+
+/*.swiper-wrapper {Для компа биб
+  height: auto;
+}*/
+
+
+/*** modal-Модальное окно 1920px***/
+
+.modal-сhristmasTree {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(51, 51, 51, 0.3);
+}
+
+.modal-сhristmasTree-sps {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  flex-basis: 624px;
+  padding: 30px;
+  border-radius: 10px;
+  min-width: 260px;
+  opacity: 0;
+  -webkit-transition: opacity 0.15s linear;
+  -ms-transition: opacity 0.15s linear;
+  -moz-transition: opacity 0.15s linear;
+  -o-transition: opacity 0.15s linear;
+  transition: opacity 0.15s linear;
+  overflow: hidden;
+}
+
+.modal-before {
+  padding: 100px 62px 60px;
+  background-color: var(--color-white);
+}
+
+.modal-before::before,
+.modal-before::after {
+  content: "";
+  position: absolute;
+  width: 200px;
+  height: 212px;
+  background: url("../img/modalFon.png") center / cover no-repeat;
+}
+
+.modal-before::before {
+  top: 0;
+  left: 0;
+}
+
+.modal-before::after {
+  right: 0;
+  bottom: 0;
+  transform: rotate(180deg);
+}
+
+
+/*Крест выключатель модального окна*/
+
+.modal-close {
+  position: absolute;
+  top: 50px;
+  right: 60px;
+  border: 1px solid transparent;
+  /*clamp() - резина размера шрифта*/
+  font-size: clamp(18px, 3vw, 25px);
+  color: var(--color-limeade);
+  background-color: transparent;
+  -webkit-transition: color .4s ease-in-out, background-color .4s ease-in-out;
+  -ms-transition: color .4s ease-in-out, background-color .4s ease-in-out;
+  -moz-transition: color .4s ease-in-out, background-color .4s ease-in-out;
+  -o-transition: color .4s ease-in-out, background-color .4s ease-in-out;
+  transition: color .4s ease-in-out, background-color .4s ease-in-out;
+  cursor: pointer;
+  outline: none;
+}
+
+.modal-close:focus {
+  border: 1px solid var(--color-limeade);
+}
+
+.modal-close:hover {
+  color: var(--color-white);
+  background-color: var(--color-limeade);
+}
+
+.modal-close:active {
+  opacity: .7;
+}
+
+.modal-h2 {
+  font-size: clamp(18px, 5vw, 32px);
+  color: var(--color-limeade);
+  font-weight: 700;
+}
+
+
+/* // Крест выключатель модального окна*/
+
+
+/***Стилазация фразы ошибки***/
+
+.hero__label,
+.order__label {
+  /*общий*/
+  position: relative;
+}
+
+.js-validate-error-label {
+  position: absolute;
+  top: -21px;
+}
+
+/***Конец стилазация фразы ошибки***/
+/*---Стили формы ошибки, галка, цвет текста в файле doggies-jeka.js(Dop модальное окно) - colorWrong: '#ff6972'---*/
+/*** // modal-Модальное окно 1920px***/
+
+
+/*** buy-1920px***/
+.buy {
+  padding: 70px 0 55px;
+  background: url("../img/elka-fon02.jpg") center / cover no-repeat;
+  background-color: var(--color-limeadeA);
+}
+
+.buy__container {
+  text-align: center;
+}
+
+.buy__h2 {
+  margin: 0 0 13px auto;
+  width: 627px;
+  /*clamp() - резина размера шрифта*/
+  font-size: clamp(18px, 4vw, 50px);
+  line-height: 1;
+}
+
+.buy__desc {
+  margin: 0 0 35px auto;
+  width: 610px;
+  font-weight: 400;
+  font-size: clamp(17px, 5vw, 33px);
+  line-height: 1.2;
+  text-align: center;
+}
+
+.buy__desc_474 {
+  display: none;
+}
+
+.buy__h3 {
+  margin: 0 0 53px auto;
+  width: 623px;
+  font-weight: 400;
+  font-size: clamp(14px, 5vw, 30px);
+}
+
+.buy__h4 {
+  margin-bottom: 38px;
+  text-transform: uppercase;
+}
+
+
+/*---Телефон валидация и маска---*/
+
+.buy__form {
+  margin: 0 111px 0 auto;
+  width: 410px;
+}
+
+.buy__block {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.buy__label {
+  position: relative;
+}
+
+.buy__label:not(:first-child) .js-validate-error-label {
+  display: none;
+}
+
+.buy__label .js-validate-error-label {
+  top: -60%;
+  display: block;
+  font-weight: 600;
+  font-size: clamp(18px, 3vw, 25px);
+  -webkit-text-stroke: 0.5px rgba(0, 0, 0, .5);
+}
+
+.buy__label:not(:last-child) {
+  margin-bottom: 11px;
+}
+
+.buy__input {
+  padding: 17px;
+  border-radius: 5px;
+  border: 1px solid var(--color-alto);
+  width: 100%;
+  font-size: 16px;
+  background-color: var(--color-rgb247);
+  -webkit-transition: background-color .4s ease-in-out;
+  -moz-transition: background-color .4s ease-in-out;
+  -ms-transition: background-color .4s ease-in-out;
+  -o-transition: background-color .4s ease-in-out;
+  transition: background-color .4s ease-in-out;
+}
+
+.buy__input:focus {
+  outline: none;
+  border: 1px solid var(--color-limeade);
+}
+
+.buy__input:hover {
+  background-color: var(--color-gallery);
+}
+
+.buy__input:active {
+  opacity: .7;
+}
+
+.buy__btn {
+  padding: 23px 120px;
+  max-width: 410px;
+  font-size: 20px;
+  background-image: -moz-linear-gradient(90deg, rgb(45, 119, 0) 3%, rgb(60, 155, 2) 5%, rgb(68, 179, 0) 100%);
+  background-image: -webkit-linear-gradient(90deg, rgb(45, 119, 0) 3%, rgb(60, 155, 2) 5%, rgb(68, 179, 0) 100%);
+  background-image: -ms-linear-gradient(90deg, rgb(45, 119, 0) 3%, rgb(60, 155, 2) 5%, rgb(68, 179, 0) 100%);
+}
+
+
+/*** modal-Модальное окно 1920px***/
+
+.buy__сhristmasTree {
+  position: fixed;
+  overflow: auto;
+  text-align: center;
+  width: 100%;
+}
+
+.buy__сhristmasTree::after {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+}
+
+.buy__modal-h2 {
+  margin-top: 0;
+  margin-bottom: 70px;
+}
+
+.buy__сhristmasTree_js {
+  visibility: hidden;
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 999;
+  /*Для js перекрыть .modal*/
+}
+
+.buy__сhristmasTree_js_active {
+  visibility: visible;
+  opacity: 1;
+}
+
+.buy__сhristmasTree-sps_js {
+  display: none;
+  opacity: 0;
+}
+
+.buy__сhristmasTree-sps_js_active {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  opacity: 1;
+}
+
+.buy__before {
+  padding-top: 121px;
+}
+
+/*** // modal-Модальное окно***/
+/*** // buy-1920px***/
+
+
+/*** score-1920px***/
+.score {
+  padding: 35px 0;
+  background: url("../img/score-fon.png") center / cover no-repeat;
+  background-color: var(--color-limeadeA);
+}
+
+.score__title {
+  font-size: clamp(15px, 5vw, 40px);
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.score__title span {
+  border-radius: 10px;
+  color: rgb(70, 70, 70);
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0px 4px 5px 0px rgba(0, 1, 3, 0.2);
+}
+
+.score__title span:not(:last-child) {
+  margin-right: 10px;
+}
+
+/*** // score-1920px***/
+
+
+@media (max-width: 1028px) {
+  .buy__container {
+    width: 696px;
+  }
+
+  .buy__h2 {
+    margin: 0 0 13px 0;
+    width: 100%;
+  }
+
+  .buy__desc {
+    margin: 0 0 35px 0;
+    width: 100%;
+  }
+
+  .buy__h3 {
+    margin: 0 0 53px 0;
+    width: 100%;
+  }
+}
+
+@media (max-width: 787px) {
+  .container {
+    padding: 0 30px;
+  }
+
+  .modal-сhristmasTree-sps {
+    flex-basis: 83%;
+  }
+
+  .modal-before {
+    padding: 70px 35px 45px;
+  }
+
+  .modal-before::before,
+  .modal-before::after {
+    width: 150px;
+    height: 162px;
+  }
+
+  .modal-close {
+    right: 50px;
+  }
+
+  .buy {
+    padding: 50px 0;
+    background-position: 52%;
+  }
+
+  .buy__container {
+    width: 100%;
+  }
+
+  .buy__before {
+    padding-top: 99px;
+  }
+
+  .buy__desc {
+    margin-bottom: 15px;
+  }
+
+  .buy__h3 {
+    margin: 0 0 33px 0;
+  }
+
+  .buy__form {
+    margin: 0 auto;
+    width: 70%;
+  }
+
+  .buy__label .js-validate-error-label {
+    top: -25px;
+  }
+
+  .buy__btn {
+    font-size: 20px;
+    padding: 23px;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 474px) {
+  .container {
+    padding: 0 15px;
+  }
+
+  .js-validate-error-label {
+    top: -28.5px;
+  }
+
+  .buy__desc_1920 {
+    display: none;
+  }
+
+  .buy__desc_474 {
+    display: block;
+    text-align: left;
+  }
+
+  .buy__form {
+    width: 100%;
+  }
+
+  .buy__label .js-validate-error-label {
+    top: -23px;
+    -webkit-text-stroke: 0.2px rgba(0, 0, 0, .3);
+  }
+}

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="shortcut icon" href="img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--закрасить адресную строку и строку уведомлений в любой цвет.-->
+  <meta name="theme-color" content="#1f1f1f">
+  <!--Для поиска в сети-->
+  <meta name="description" content="Рада видеть Вас на своём сайте.">
+  <meta property="og:title" content="Форма с БЗ из timeweb.ru">
+  <meta property="og:type" content="website">
+  <!-- здесь ссылка на сайт-->
+  <meta property="og:url" content="http://ссылка сайта/">
+  <!-- <meta property="og:image" content="картинка для поисковиков ссылка"> -->
+  <meta property="og:image" content="...">
+  <meta name="keywords" content="заказ, заказать, услуги, сайт, сайт под ключ, верстальщик, цена, лендинг">
+  <!-- // Для поиска в сети-->
+  <title>Тур в Абхазию от агенства &laquo;Телепорт&raquo;</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,700;1,400&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <!-- подключаем jQuery для Базы данных timeweb.ru -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/style.css">
+  <script>
+    // для Базы данных timeweb.ru
+    $(function(){
+      $('.form-button').on('click', function(){
+        let data = {
+          'name': $('[name="name"]').val(),
+          'tel': $('[name="tel"]').val(),
+          // 'email': $('[name="email"]').val()
+        };
+        $.post('mail.php', data, function(response){
+          if (response == 1) {
+            $('[name="name"]').val('');
+            $('[name="tel"]').val('');
+            // $('[name="email"]').val('');
+          } 
+        })
+
+        return false;
+      });
+    });
+  </script>
+</head>
+<body>
+  <section class="buy">
+    <div class="buy__container container">
+      <h2 class="buy__h2 h2 color-white255">
+        Закажите до&nbsp;10&nbsp;ноября 
+      </h2>
+      <p class="buy__desc buy__desc_1920 desc color-white255">
+        на&nbsp;сумму от&nbsp;100&nbsp;000 рублей и&nbsp;получите&nbsp;дополнительную скидку&nbsp;15%              
+      </p>
+      <p class="buy__desc buy__desc_474 desc color-white255">
+        на&nbsp;сумму от&nbsp;100&nbsp;000 рублей и получите дополнительную скидку&nbsp;15%              
+      </p>
+      <h3 class="buy__h3 h3 color-white255">
+        В&nbsp;декабре скидка&nbsp;5%
+      </h3>
+      <form class="buy__form buy__form_js" action="mail.php" enctype="multipart/form-data"
+      method="POST" aria-label="Здесь вы можете оставить свои данные и скачать файл">
+        <input type="hidden" name="admin_email[]" value="lyaisan.333@yandex.ru"> <!--darki@yandex.ru-->
+        <input type="hidden" name="form_subject" value="Сообщение из сайта Ёлочка, заказ">
+        <div class="buy__block">
+          <!--data здесь он обрабатывает плагин валидатор кода-->
+          <label class="buy__label" for="nameZ">
+            <input class="buy__input" type="text" name="name" placeholder="Ваше имя" data-validate-field="name" id="nameZ" required aria-label="Введите ваше имя" maxlength="10">
+          </label>
+          <label class="buy__label" for="telZ">
+            <input class="buy__input" type="tel" name="tel" placeholder="Ваш телефон" data-validate-field="tel" data-validate-rules="phone" id="telZ" aria-label="Введите ваш телефон">
+          </label>
+        </div>
+        <button class="buy__btn btn">Оставить заявку</button>
+      </form>
+      <div class="buy__сhristmasTree modal-сhristmasTree buy__сhristmasTree_js">
+        <div class="buy__сhristmasTree-sps modal-сhristmasTree-sps buy__сhristmasTree-sps_js">
+          <div class="buy__before modal-before">
+            <button class="buy__modal-close modal-close buy__modal-close_js" title="Закрыть">
+              &#10006;
+            </button>
+            <h2 class="buy__modal-h2 modal-h2 h2">
+              Спасибо, мы с вами свяжемся!
+            </h2>
+          </div>
+        </div>
+      </div><!--Модалка-buy__сhristmasTree-->
+    </div> 
+  </section>
+
+
+  <!--Аккордеон тоже самое и для телефона-->
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js"
+  integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+  <!--минифицированный библиотека. для телефона-->
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+    integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+  <!--Маска формы input-ов-->
+  <script src="js/inputmask.min.js"></script>
+  <!--Валидатор input-ов-->
+  <script src="js/just-validate.js"></script>
+
+  
+  <script src="js/buy.js"></script>
+
+</body>
+</html>
